@@ -1,4 +1,4 @@
-import { Controller, Get, HttpStatus } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { ProducerRecorrencyService } from '@domains/Producer/services/producerRecorrency.service';
 import RecorrencyTRange from '@domains/Producer/mappers/recorrency.trange';
 import { ApiOkResponse } from '@nestjs/swagger';

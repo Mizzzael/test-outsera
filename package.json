@@ -68,6 +68,12 @@
       "json",
       "ts"
     ],
+    "paths": {
+      "@/*": ["./*"],
+      "@domains/*": [ "./src/domains/*" ],
+      "@infra/*": [ "./src/infra/*" ],
+      "@commons/*": [ "./src/commons/*" ]
+    },
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {

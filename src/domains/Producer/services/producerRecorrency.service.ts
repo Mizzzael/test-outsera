@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { ProducerRecorrency } from '@domains/Producer/models/ProducerRecorrency.entity';
-import { Producer } from '@domains/Producer/models/Producer.entity';
 
 @Injectable()
 export class ProducerRecorrencyService {
@@ -45,9 +44,8 @@ export class ProducerRecorrencyService {
     let response: ProducerRecorrency[][] | null = null;
     const total = await this.getTotal();
     if (total < 2) return null;
-    const splitSize = Math.ceil(total / 2);
     const max = await this.repositore.find({
-      take: splitSize,
+      take: 1,
       order: {
         interval: 'DESC',
         yearBegin: 'DESC',
@@ -56,18 +54,14 @@ export class ProducerRecorrencyService {
     });
 
     const min = await this.repositore.find({
-      take: splitSize,
+      take: 1,
       order: {
         interval: 'ASC',
         yearBegin: 'DESC',
       },
       relations: ['producer', 'firstMovie', 'secondMovie'],
     });
-    response = [
-      max,
-      min
-    ];
+    response = [max, min];
     return response;
   }
-
 }

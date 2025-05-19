@@ -5,5 +5,11 @@
   "testRegex": ".e2e-spec.ts$",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "@/(.*)": ["<rootDir>/../$1.ts"],
+    "@domains/(.*)": [ "<rootDir>/../src/domains/$1.ts" ],
+    "@infra/(.*)": [ "<rootDir>/../src/infra/$1.ts" ],
+    "@commons/(.*)": [ "<rootDir>/../src/commons/$1.ts" ]
   }
 }
